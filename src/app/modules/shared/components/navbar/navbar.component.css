@@ -1,3 +1,33 @@
 .example-spacer {
     flex: 1 1 auto;
 }  
+
+/*
+    1) aplica estilos generales segun margen o ancho de una pantalla
+    2) permiten
+    3)
+*/
+@media (min-width: 300px) and (max-width: 700px){
+    mat-tollbar{
+        background-color: blue;
+    }
+}
+
+#menuinicio{
+    display: none;
+}
+
+#menuproducto{
+    display: none;
+}
+
+@media(min-width: 700px){
+    mat-toolbar{
+        background-color: brown;
+    }
+}
+
+#menuSecciones{
+    display: none;
+}
+
