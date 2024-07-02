@@ -6,6 +6,10 @@ import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
 // importamos componente de rutas de angular
 import { Router } from '@angular/router';
+//importamos 
+import * as cryptoJS from 'crypto-js';
+
+// ng add @angular/fire@16
 
 @Component({
   selector: 'app-registro',
@@ -72,6 +76,13 @@ export class RegistroComponent {
 
     // Se le asigna al atributo de la interfaz esta constante
     this.usuarios.uid = uid;
+
+    /**
+     * SHA-256: Es un algoritmo de hash seguro que toma una entrada (en este caso la contraseña)
+     * y produce una cadena de caracteres HEXADECIMAL que va a representar a su hash
+     * toString: convierte el resultado en la cadena de caracteres legible
+     */
+    this.usuarios.password = cryptoJS.SHA256(this.usuarios.password).toString();
 
     // Llamamos a la función guardUsuario()
     this.guardarUsuario();

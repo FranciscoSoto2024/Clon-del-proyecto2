@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js'
 
 @Component({
   selector: 'app-iniciosesion',
@@ -102,7 +103,28 @@ export class IniciosesionComponent {
       password: this.usuarios.password
     }
 
-    const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.password)
+    try{
+      const usuarioBD = await this.servicioAuth.obtenerUsuario(credenciales.email);
+
+      if(!usuarioBD || usuarioBD.empty){
+        alert("correo electronico no registrado");
+        this.limpiarInputs();
+        return;
+      }
+
+      const usuarioDoc = usuarioBD.docs[0];
+
+      const usuarioData = usuarioDoc.data() as Usuario;
+      
+      const hashedPassword = CryptoJS.SHA256(credenciales.password).toString();
+
+      if(hashedPassword !== usuarioData.password){
+        alert("contraseña incorrecta");
+
+        this.usuarios.password = '';
+        return
+      }
+      const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.password)
     .then(res => {
       alert('¡Se pudo ingresar con éxito :)!');
 
@@ -113,6 +135,11 @@ export class IniciosesionComponent {
 
       this.limpiarInputs();
     })
+    }catch(error){
+      this.limpiarInputs();
+    }
+
+  
   }
 
   limpiarInputs(){
@@ -122,3 +149,4 @@ export class IniciosesionComponent {
     }
   }
 }
+"encriptacion de la contraseña del usuario con paqueteria crytoJS"
