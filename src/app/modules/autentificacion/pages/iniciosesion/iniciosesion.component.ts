@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-iniciosesion',
@@ -108,7 +109,11 @@ export class IniciosesionComponent {
       
       // Condicional verifica que ese usuario de la BD existiera o que sea igual al de nuestra coleccion
       if(!usuarioBD || usuarioBD.empty){
-        alert("correo electronico no registrado");
+        Swal.fire({
+          title: "Oh no!",
+          text: "No se pudo iniciar sesion!",
+          icon: "error"
+        });
         this.limpiarInputs();
         return;
       }

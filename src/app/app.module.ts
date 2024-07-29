@@ -12,7 +12,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { environment } from 'src/environments/environment'; // vincula a la BD con la APP
 import { AngularFireModule } from '@angular/fire/compat'; // trabaja con las colecciones de información
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // trabaja con la autentificación
-import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // trabaja con imágenes y archivos
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AdminComponent } from './modules/admin/admin.component'; // trabaja con imágenes y archivos
 
 /**
  * npm install firebase --force <- fuerza la instalación
@@ -21,7 +22,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // trab
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,10 @@ import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
 // importamos componente de rutas de angular
 import { Router } from '@angular/router';
-//importamos 
+// Componente de encriptacion
 import * as cryptoJS from 'crypto-js';
+// Paqueteria de alertas personalizadas
+import Swal from 'sweetalert2';
 
 // ng add @angular/fire@16
 
@@ -61,14 +63,22 @@ export class RegistroComponent {
     const res = await this.servicioAuth.registrar(credenciales.email, credenciales.password)
     // el método THEN es una promesa que devuelve el mismo valor si todo sale bien
     .then(res => {
-      alert("¡Se pudo registrar con éxito! :)");
+      Swal.fire({
+        title: "Buen trabajo mijo!",
+        text: "Se pudo registrar con exito :D!",
+        icon: "success"
+      });
 
       // el método NAVIGATE nos redirecciona a otra vista
       this.servicioRutas.navigate(['/inicio']);
     })
     // el método CATCH captura una falla y la vuelve un error cuando la promesa salga mal
     .catch(error => {
-      alert("Hubo un error al registrar un nuevo usuario :( \n"+error);
+      Swal.fire({
+        title: "Oh no !",
+        text: "hubo un error al registrar un nuevo usuario :(!",
+        icon: "error"
+      });
     })
 
     // Constante UID captura el identificado de la BD

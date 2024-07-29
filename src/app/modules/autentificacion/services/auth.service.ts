@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 // Servicio en la nube de autentificación de Firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FirestoreService } from '../../shared/services/firestore.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
@@ -9,7 +8,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class AuthService {
   // Referenciar Auth de Firebase en el servicio
-  constructor(public auth: AngularFireAuth, 
+  constructor(
+  private auth: AngularFireAuth, 
   
   private servicioFirestore: AngularFirestore
 ) { }
