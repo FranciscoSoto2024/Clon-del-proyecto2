@@ -13,7 +13,9 @@ import { environment } from 'src/environments/environment'; // vincula a la BD c
 import { AngularFireModule } from '@angular/fire/compat'; // trabaja con las colecciones de información
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // trabaja con la autentificación
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AdminComponent } from './modules/admin/admin.component'; // trabaja con imágenes y archivos
+// trabaja con imágenes y archivos
+
+
 
 /**
  * npm install firebase --force <- fuerza la instalación
@@ -22,8 +24,7 @@ import { AdminComponent } from './modules/admin/admin.component'; // trabaja con
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdminComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
