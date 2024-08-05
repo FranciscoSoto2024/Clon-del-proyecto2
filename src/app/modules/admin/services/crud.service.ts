@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
-import { AngularFireStorage, AngularFirestoreCollection } from '@angular/fire/compat/storage';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +14,20 @@ export class CrudService {
 
   crearProducto(producto: Producto){
     return new Promise(async(resolve, reject) => {
-      const idProducto = this.database.createId();
-      //Asignamos ID creado al atributo idproducto de la interfaz producto
-      producto.idProducto = idProducto
+      try{
+        // Creamos número identificativo para el producto en la base de datos
+        const idProducto = this.database.createId();
 
-      const resultado = await this.productosCollection.doc(idProducto).set(producto);
+        // Asignamos ID creado al atributo idProducto de la interfaz Producto
+        producto.idProducto = idProducto;
 
-      resolve(resultado);
+        const resultado = await this.productosCollection.doc(idProducto).set(producto);
+
+        resolve(resultado);
+      } catch (error){
+        reject(error);
+      }
     })
-  } catch(error){
-    reject(error);
   }
   }
 

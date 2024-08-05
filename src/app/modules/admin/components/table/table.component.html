@@ -12,11 +12,11 @@
     </thead>
 
     <tbody>
-        <tr *ngForm= "let col of coleccionProductos">
+        <tr *ngForm="let col of coleccionProductos">
             <th scope="row">1</th>
 
             <td>
-                <img src= "{{col.imagen}}" alt= "{{col.alt}}">
+                <img src="{{col.imagen}}" alt="{{col.alt}}">
             </td>
 
             <td>{{col.nombre}}</td>
@@ -38,3 +38,61 @@
         </tr>
     </tbody>
 </table>
+
+<!-- BOTON DE AGREGAR NUEVOS PRODUCTOS -->
+<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto">
+    Agregar un nuevo producto
+</button>
+
+<!-- MODAL PARA AGREGAR NUEVO PRODUCTO -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- TITULO DEL MODAL -->
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese un nuevo producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- CUERPO DEL MODAL -->
+            <div [formGroup]="producto" class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el nombre del producto</label>
+                    <input class="form-control" type="text" formControlName="nombre"
+                        placeholder="Ej.: Medias de chanchitos">
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el precio</label>
+                    <input class="form-control" type="number" formControlName="precio" placeholder="...">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Seleccione una categoria</label>
+                    <select class="form-control" formControlName="categoria" class="form-select">
+                        <option selected>Elija una opcion</option>
+                        <option value="alimentacion">alimentacion</option>
+                        <option value="indumentaria">indumentaria</option>
+                        <option value="juguete">juguete</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese una imagen</label>
+                    <input class="form-control" type="text" formControlName="imagen" placeholder="ingrese vinculo">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese un texto Alternativo de la imagen></label>
+                        <input class="form-control" type="text" formControlName="al" placeholder="Ej.: Medias de chanchitos">
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" (click)="agregarProducto()"
+                        data-bs-dismiss="modal">Guardar</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
