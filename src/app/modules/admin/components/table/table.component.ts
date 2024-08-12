@@ -11,6 +11,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class TableComponent {
   coleccionProductos: Producto[] = [];
 
+  productoSeleccionado!: Producto; // ! <- tomar valores vacios
+
+  modalVisibleProducto: boolean = false;
+
   // definimos formulario para los productos
   /**
    * Atributos alfanumericos (string) se inicializan con comillas simples
@@ -27,7 +31,11 @@ export class TableComponent {
 
   constructor(public servicioCrud: CrudService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.servicioCrud.obtenerProducto().subscribe(producto => {
+      this.coleccionProductos = producto;
+    })
+  }
 
   async agregarProducto() {
     if (this.producto.valid) {
@@ -50,5 +58,21 @@ export class TableComponent {
         });
 
     };
+  }
+  //funcion vinculada al modal y el boton de la tabla
+  mostrarBorrar(productoSeleccionado: Producto){
+    this.modalVisibleProducto = true;
+
+    this.productoSeleccionado = productoSeleccionado;
+  }
+
+  borrarProducto(){
+    this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto)
+    .then(respuesta => {
+      alert("se ha podido eliminar con exito.");
+    })
+    .catch(error => {
+      alert("ha ocurrido un error al eliminar un producto: /n"+error)
+    });
   }
 }
