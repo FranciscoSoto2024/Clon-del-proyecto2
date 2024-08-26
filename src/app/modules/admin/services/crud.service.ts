@@ -43,7 +43,7 @@ export class CrudService {
   }
 
   //EDITAR productos
-  modificarProducto(idProducto: string, nuevaData: string) {
+  modificarProducto(idProducto: string, nuevaData: Producto) {
     /*
 accedemos a la coleccion "productos" de la base de datos, buscamos el ID del
 producto seleccionado y lo actualizamos con el metodo "update", enviando la 
