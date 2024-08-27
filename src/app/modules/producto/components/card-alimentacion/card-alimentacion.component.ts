@@ -13,8 +13,10 @@ export class CardAlimentacionComponent {
   coleccionAlimentacion: Producto[] = [];
   //Coleccion de todos los productos de forma local
   coleccionSeleccionado!: Producto;
-  //
-  
+  //variable local para manejar estado de un model
+  modalVisible: boolean = false;
+  //Variable para seleccionar un producto en especifico
+  productoSeleccionado!: Producto;
 
   
   //patentamos de forma local el servicio para acceder a el

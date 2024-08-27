@@ -14,6 +14,7 @@ productoSeleccionado!: Producto;
   // Variable local para menejar estado de un modal
 modalVisible: boolean = false;
 
+
 constructor(public sevicioCrud: CrudService){}
 
 ngOnInit(): void{
