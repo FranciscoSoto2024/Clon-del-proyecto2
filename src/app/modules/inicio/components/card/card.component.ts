@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Tattoo } from 'src/app/models/tattoo';
+import { Animal } from 'src/app/models/animal';
 
 @Component({
   selector: 'app-card',
@@ -7,39 +7,38 @@ import { Tattoo } from 'src/app/models/tattoo';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  public info: Tattoo[]
+  public info: Animal[]
 
   constructor(){
     this.info = [
     {
       id: "",
-      nombre: "estilo japones",
-      origen: "japones",
-      estilo: "japones",
-      edad: 5000,
-      imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Japanese_body_suit.jpg/250px-Japanese_body_suit.jpg",
-      descripcion:"En Japón existe un tipo de tattoo que cubre gran parte del cuerpo, conocido como Horinomo y es este estilo el que suelen llevar los criminales de esta mafia No obstante, el Horinomo tiene diversos significados y no solo está relacionado con la Yakuza",
-      alt:""
+    nombre: "PERRO",
+    raza: "BULLDOG",
+    descripcion:"El bulldog, también conocido como bulldog inglés, es una raza de perro originaria de Inglaterra. Su ancestro, conocido como el Antiguo Bulldog Inglés, fue utilizado en peleas de perros con toros hasta mediados del siglo XVII, aunque en 1835 esta práctica fue prohibida. Hoy en día, esta raza de perro es uno de los símbolos de Inglaterra.",
+    edad: 11 ,
+    imagen: "https://perro.shop/wp-content/uploads/Bulldog-Ingles-768x696.jpg",
+    alt: ""
     },
+
     {
       id: "",
-      nombre: "old school",
-      origen: "estados unidos",
-      estilo: "old school",
-      edad: 1500,
-      imagen: "https://th.bing.com/th/id/OIP.A5A0INeZMXE7W3PdIoNQawAAAA?rs=1&pid=ImgDetMain",
-      descripcion:"El estilo old school tiene sus raíces en los primeros años del siglo XX en los Estados Unidos. Su origen se remonta a los marineros que se tatuaban durante sus viajes por todo el mundo. Estos tatuajes, realizados en su mayoría en puertos y ciudades portuarias, se caracterizaban por sus diseños audaces, colores vibrantes y líneas gruesas. Los motivos clásicos del old school incluyen anclas, corazones, golondrinas, rosas, sirenas y otros elementos marítimos",
-      alt:""
+    nombre: "Gato",
+    raza: "Munchkin",
+    descripcion:"El munchkin es una raza de gato surgida por una mutación genética natural, mantenida por cruzamientos selectivos, que da lugar a gatos con patas más cortas de lo normal. Sin embargo, la poca longitud de sus patas no parece interferir con sus habilidades a la hora de correr y saltar.",
+    edad: 15,
+    imagen: "https://i0.wp.com/vetplace.pe/wp-content/uploads/2021/12/Gato-Munchkin-cuidados.jpg",
+    alt: ""
     },
+
     {
       id: "",
-      nombre: "tribal",
-      origen: "tribus polineseas",
-      estilo: "tribal",
-      edad: 5000,
-      imagen: "https://t1.uc.ltmcdn.com/es/posts/7/3/4/_49437_1_600.jpg",
-      descripcion:"Los tatuajes tribales son diseños que se caracterizan por su simplicidad y líneas geométricas. A menudo, se inspiran en patrones tradicionales de diferentes culturas y se aplican en áreas específicas del cuerpo. Estos tatuajes han sido una forma popular de arte corporal durante siglos, y aunque el significado puede variar dependiendo de la cultura y la ubicación, todos comparten un aspecto en común: son un símbolo de identidad y pertenencia.",
-      alt:""
+    nombre: "Tortuga",
+    raza: "Galapagos",
+    descripcion:"La tortuga galápagos, también conocida como tortuga gigante Galápagos, es una especie icónica nativa del archipiélago ecuatoriano de las Islas Galápagos. Conocida por su tamaño impresionante y longevidad excepcional, puede alcanzar hasta 1.8 metros de longitud y vivir más de 100 años",
+    edad: 100,
+    imagen: "https://www.elnuevodia.com/resizer/PxcfhcGOfOMmhWHxRiPjmgCytXk=/1200x717/smart/filters:quality(95):format(png)/cloudfront-us-east-1.images.arcpublishing.com/gfrmedia/3O64K7ITVVCEDB6FW7NLNOF6N4.jpg",
+    alt: ""
     },
   ]
    }

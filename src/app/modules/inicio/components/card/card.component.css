@@ -4,6 +4,11 @@
     justify-content: center;
 }
 
+img{
+    width: 320px;
+    height: 340px;
+}
+
 h1{
     text-align: center;
 }
@@ -13,9 +18,13 @@ h1{
     display: inline-block;
     padding: 15px;
     border-radius: 8px;
-    margin: 10px;
+    margin: 100px;
 }
 
 p{
     padding: 5px;
+}
+
+ul li{
+    list-style: none;
 }

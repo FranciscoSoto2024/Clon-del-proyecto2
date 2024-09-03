@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/services/crud.service';
 @Component({
@@ -8,12 +8,17 @@ import { CrudService } from 'src/app/modules/admin/services/crud.service';
 })
 export class CardComponent {
   //Definimos coleccion de productos locales
-coleccionProductos: Producto[] = [];
+  coleccionProductos: Producto[] = [];
   // Variable local para seleccionar un producto especifico
-productoSeleccionado!: Producto;
+  productoSeleccionado!: Producto;
   // Variable local para menejar estado de un modal
-modalVisible: boolean = false;
+  modalVisible: boolean = false;
+  //booleano para manejar la visibilidad de "ultima compra" 
+  compraVisible:boolean = false;
+  //Directivas para comunicarse con el componente padre
+  @Input() productoReciente: string = '';
 
+  @Output() productoAgregado = new EventEmitter <Producto>(); //@Output
 
 constructor(public sevicioCrud: CrudService){}
 
@@ -29,5 +34,11 @@ mostrarVer(info:Producto){
   this.modalVisible = true
   //Guardo en variable seleccionado la informacion del producto elegido 
   this.productoSeleccionado = info;
+}
+
+agregarProducto(info : Producto){
+  this.productoAgregado.emit(info);
+
+  this.compraVisible = true;
 }
 }
