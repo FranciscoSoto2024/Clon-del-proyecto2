@@ -1,25 +1,23 @@
 <div class="container">
   <div class="row">
-    <h1>Inicio y tarjetas</h1>
-
-    <div class="col">
-      <div *ngFor="let i of info" class="contenido">
-        <div class="card" style="width: 20rem;">
-          <img src="{{i.imagen}}" class="card-img-top" alt="{{i.alt}}">
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text">
-              <li>{{i.nombre}}</li>
-              <li>{{i.raza}}</li>
-              <li>{{i.edad}}</li>
+    <div class="col"></div>
+      <div *ngFor="let i of info" class="contenido" >
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{i.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{i.edad}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{i.imagen}}" alt="{{i.alt}}">
+          <mat-card-content>
+            <p>
+              {{i.descripcion}}
             </p>
-            <ul>
-              <li>{{i.descripcion}}</li>
-            </ul>
-            <a href="#" class="btn btn-primary">Ver mas</a>
-          </div>
-        </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>VER MAS</button>
+            <button mat-button></button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>
-</div>

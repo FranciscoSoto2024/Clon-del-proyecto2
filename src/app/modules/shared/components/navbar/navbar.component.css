@@ -23,7 +23,7 @@
 
 @media(min-width: 700px){
     mat-toolbar{
-        background-color: brown;
+        background-color: rgb(230, 17, 17);
     }
 }
 

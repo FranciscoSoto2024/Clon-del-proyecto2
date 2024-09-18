@@ -8,3 +8,4 @@ export interface Tattoo {
     descripcion: string;
     alt:string;
 }
+    

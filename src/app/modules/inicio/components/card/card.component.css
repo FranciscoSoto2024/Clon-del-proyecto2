@@ -1,24 +1,24 @@
 .container{
     display: flex;
     padding: 10px;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 0;
 }
 
 img{
-    width: 320px;
-    height: 340px;
-}
-
-h1{
-    text-align: center;
+    width: 220px;
+    height: 220px;
 }
 
 .contenido{
     width: 200px;
-    display: inline-block;
+    display: flex;
     padding: 15px;
-    border-radius: 8px;
-    margin: 100px;
+    border-radius: 10px;
+    margin: 30px;
+    justify-content: center;
+    flex-direction: row;
+
 }
 
 p{
@@ -28,3 +28,4 @@ p{
 ul li{
     list-style: none;
 }
+

@@ -5,12 +5,12 @@ export const environment = {
     production: false,
 
      firebaseConfig: {
-        apiKey: "AIzaSyCLQuTTja5VVjWw8iGb4yHTqS3geFr8DRU",
-        authDomain: "nueva-basededatos.firebaseapp.com",
-        projectId: "nueva-basededatos",
-        storageBucket: "nueva-basededatos.appspot.com",
-        messagingSenderId: "932070072307",
-        appId: "1:932070072307:web:86a3dc7e328262a8dbbc86"
+      apiKey: "AIzaSyB7uum4JrnDgtVaEwk3G4GmMMSWtHIMkiY",
+      authDomain: "tattoo-6afae.firebaseapp.com",
+      projectId: "tattoo-6afae",
+      storageBucket: "tattoo-6afae.appspot.com",
+      messagingSenderId: "307346367038",
+      appId: "1:307346367038:web:2554c7aa96b6dc2d53276f"
       }
 };
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Animal } from 'src/app/models/animal';
+import { Tattoo } from 'src/app/models/tattoo';
 
 @Component({
   selector: 'app-card',
@@ -7,39 +8,53 @@ import { Animal } from 'src/app/models/animal';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  public info: Animal[]
+  public info: Tattoo[]
 
   constructor(){
     this.info = [
     {
       id: "",
-    nombre: "PERRO",
-    raza: "BULLDOG",
-    descripcion:"El bulldog, también conocido como bulldog inglés, es una raza de perro originaria de Inglaterra. Su ancestro, conocido como el Antiguo Bulldog Inglés, fue utilizado en peleas de perros con toros hasta mediados del siglo XVII, aunque en 1835 esta práctica fue prohibida. Hoy en día, esta raza de perro es uno de los símbolos de Inglaterra.",
-    edad: 11 ,
-    imagen: "https://perro.shop/wp-content/uploads/Bulldog-Ingles-768x696.jpg",
-    alt: ""
+    nombre:"Irezumi",
+    estilo: "japones", 
+    origen: "japon",
+    edad: 5000,
+    imagen: "https://allthingstattoo.ca/wp-content/uploads/2018/08/koji-ichimaru.jpg",
+    descripcion: "Los tatuajes tradicionales japoneses se caracterizan por sus colores vivos, sus patrones elaborados y sus temas simbólicos. Los temas comunes incluyen animales, plantas, flores, peces, demonios y dioses El significado de los tatuajes japoneses es muy fuerte, y la mayoría de los diseños se eligen por una razón. Con origen en la mitología, el budismo o el sintoísmo.", 
+    alt:""
     },
 
     {
       id: "",
-    nombre: "Gato",
-    raza: "Munchkin",
-    descripcion:"El munchkin es una raza de gato surgida por una mutación genética natural, mantenida por cruzamientos selectivos, que da lugar a gatos con patas más cortas de lo normal. Sin embargo, la poca longitud de sus patas no parece interferir con sus habilidades a la hora de correr y saltar.",
-    edad: 15,
-    imagen: "https://i0.wp.com/vetplace.pe/wp-content/uploads/2021/12/Gato-Munchkin-cuidados.jpg",
-    alt: ""
-    },
-
-    {
-      id: "",
-    nombre: "Tortuga",
-    raza: "Galapagos",
-    descripcion:"La tortuga galápagos, también conocida como tortuga gigante Galápagos, es una especie icónica nativa del archipiélago ecuatoriano de las Islas Galápagos. Conocida por su tamaño impresionante y longevidad excepcional, puede alcanzar hasta 1.8 metros de longitud y vivir más de 100 años",
+    nombre:"Old school",
+    estilo: "Old school", 
+    origen: "Estados unidos",
     edad: 100,
-    imagen: "https://www.elnuevodia.com/resizer/PxcfhcGOfOMmhWHxRiPjmgCytXk=/1200x717/smart/filters:quality(95):format(png)/cloudfront-us-east-1.images.arcpublishing.com/gfrmedia/3O64K7ITVVCEDB6FW7NLNOF6N4.jpg",
-    alt: ""
+    imagen: "https://i.pinimg.com/originals/69/c9/7d/69c97d0639a48ecdf0fbe82208566b8a.jpg",
+    descripcion: "Old school (en inglés: ‘vieja escuela’) en el arte del tatuaje, una referencia al estilo tradicional estadounidense, caracterizado por líneas negras gruesas, generalmente con una gama de colores plana y definido por un imaginario específico, como son los símbolos patrios de ese país, Los diseños son simples", 
+    alt:""
     },
+
+    {
+      id: "",
+    nombre:"Tribal",
+    estilo: "Tribal", 
+    origen: "Islas polinesias",
+    edad: 2000,
+    imagen: "https://d1kq2dqeox7x40.cloudfront.net/images/news_uploads/2021/01/20210106_yz8pH0CbQT3aOtd.jpeg?w=500",
+    descripcion: "El tatuaje tribal es el estilo de tatuajes más antiguo, este arte del tatuaje está totalmente inspirado en la naturaleza y tiene un significado complejo por medio de patrones de tatuajes simples. Hoy en día, el término tatuaje tribal se refiere a un estilo de tatuaje específico caracterizado por áreas de negro sólido y formas abstractas curvas.", 
+    alt:""
+    },
+    {
+      id: "",
+    nombre:"",
+    estilo: "", 
+    origen: "",
+    edad: 1,
+    imagen: "",
+    descripcion: "", 
+    alt:""
+    },
+   
   ]
    }
 }

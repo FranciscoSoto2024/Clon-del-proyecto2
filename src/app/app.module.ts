@@ -13,13 +13,7 @@ import { environment } from 'src/environments/environment'; // vincula a la BD c
 import { AngularFireModule } from '@angular/fire/compat'; // trabaja con las colecciones de información
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // trabaja con la autentificación
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { ProductoComponent } from './modules/producto/pages/producto/producto.component';
-import { AlimentacionComponent } from './modules/producto/pages/alimentacion/alimentacion.component';
-import { IndumentariaComponent } from './modules/producto/pages/indumentaria/indumentaria.component';
-import { JugueteComponent } from './modules/producto/pages/juguete/juguete.component';
 // trabaja con imágenes y archivos
-
-
 
 /**
  * npm install firebase --force <- fuerza la instalación
