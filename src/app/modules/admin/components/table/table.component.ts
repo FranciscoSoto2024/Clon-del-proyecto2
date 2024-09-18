@@ -29,7 +29,7 @@ export class TableComponent {
     precio: new FormControl(0, Validators.required),
     descripcion: new FormControl('', Validators.required),
     categoria: new FormControl('', Validators.required),
-    imagen: new FormControl('', Validators.required),
+   //imagen: new FormControl('', Validators.required),
     alt: new FormControl('', Validators.required),
   })
 
@@ -119,7 +119,7 @@ export class TableComponent {
   }
 
   borrarProducto() {
-    this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto)
+    this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto, this.productoSeleccionado.imagen)
       .then(respuesta => {
         alert("se ha podido eliminar con exito.");
       })
@@ -129,15 +129,14 @@ export class TableComponent {
   }
 
   //EDITAR PRODUCTOS
-  mostrarEditar(productoSeleccionado: Producto) {
+  EditarProducto(productoSeleccionado: Producto) {
     this.productoSeleccionado = productoSeleccionado
     this.producto.setValue({
-      nombre: productoSeleccionado.nombre,
-      precio: productoSeleccionado.precio,
-      descripcion: productoSeleccionado.descripcion,
-      categoria: productoSeleccionado.categoria,
-      imagen: productoSeleccionado.imagen,
-      alt: productoSeleccionado.alt
+      nombre: this.productoSeleccionado.nombre,
+      precio: this.productoSeleccionado.precio,
+      descripcion: this.productoSeleccionado.descripcion,
+      categoria: this.productoSeleccionado.categoria,
+      alt: this.productoSeleccionado.alt
     })
   }
 
@@ -151,17 +150,38 @@ export class TableComponent {
       precio: this.producto.value.precio!,
       descripcion: this.producto.value.descripcion!,
       categoria: this.producto.value.categoria!,
-      //imagen: this.producto.value.imagen!,
+      imagen: this.productoSeleccionado.imagen,
       alt: this.producto.value.alt!
     }
-    //Enviamos al metodo el id del producto seleccionado y los datos actualizados
-    this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
-      .then(producto => {
-        alert("El producto se ha modificado con exito")
+
+    if (this.imagen){
+      this.servicioCrud.subirImagen(this.nombreImagen, this.imagen, "productos")
+      .then(resp => {
+        this.servicioCrud.obtenerUrlImagen(resp)
+        .then(url =>{
+          datos.imagen = url;
+
+        this.actualizarProducto(datos);
+
+        this.producto.reset();
+        })
       })
       .catch(error => {
-        alert("Hubo un problema al modificar el producto: /n" + error);
-      }
-      )
+        alert("hubo un problema al subir la imagen :( \n"+error);
+
+        this.producto.reset();
+      })
+    }
+  }
+
+  actualizarProducto(datos: Producto){
+    //Enviamos al metodo el id del producto seleccionado y los datos actualizados
+  this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
+  .then(producto => {
+    alert("El producto se ha modificado con exito")
+  })
+  .catch(error => {
+    alert("Hubo un problema al modificar el producto: /n" + error);
+  })
   }
 }
